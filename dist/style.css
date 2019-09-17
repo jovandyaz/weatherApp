@@ -1,0 +1,42 @@
+body{
+    background-image: url("https://bit.ly/2kKplCv");
+}
+
+.container{
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+#input{
+    margin-bottom: 10px;
+    padding-right: 40vh;
+    height: 30px;
+    border-style: groove;
+    box-shadow: 5px 5px 2px grey;
+    font-size: 20px;
+}
+
+#button{
+    margin-bottom: 10px;
+    padding-right: 10vh;
+    height: 35px;
+    border-style: groove;
+    box-shadow: 5px 5px 2px grey;
+    text-align: center;
+    align-content: center;    
+    background-color: rgb(201, 41, 41);
+    font-size: 20px;
+    color: whitesmoke;
+}
+
+#city{
+    display: grid;
+    font-size: 25px;
+    color: black;
+    border-style: groove;
+    box-shadow: 5px 5px 2px grey;
+    text-align: center;
+    align-content: center;
+    border-radius: 5px;
+}

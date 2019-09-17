@@ -1,20 +1,28 @@
-/*
-YOUR VIEW - RENDERER
+class Renderer {
 
+    renderData(tmp, elm, allCityData) {
+        const source = $(tmp).html()
+        const template = Handlebars.compile(source)
+        let newHTML = template({ allCityData })
+        $(elm).empty().append(newHTML)
+        console.log("renderData(allCityData):", allCityData)
+    }
+}
 
-Here's what should go inside of your Renderer class:
+const renderer = new Renderer()
 
-A method renderData which appends data to the HTML
-This mentod should take allCityData - an array of all the city data and use Handlebars and jQuery to render it on the HTML
+// class Renderer {
+//     constructor(tmp, elm, data) {
+//         this.tmp = tmp
+//         this.elm = elm
+//         this.data = data
+//     }
 
-
-Though it's not explicitly part of your render class, you also need to add in your Handlebars template to your HTML. The template should include:
-
-A div for each city
-The city name
-The temperature
-The conditions
-The time last updated
-An image of the conditions
-Any other data you want
-*/
+//     renderData() {
+//         let source = $(this.tmp).html()
+//         let template = Handlebars.compile(source)
+//         let newHTML = template(this.data)
+//         $(this.elm).append(template(newHTML))
+//         console.log("renderData:", this.data)
+//     }
+// }

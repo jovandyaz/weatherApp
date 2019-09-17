@@ -2,6 +2,8 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const citySchema = new Schema({
+    city: String,
+    country: String,
     updatedAt: Date,
     temperature: Number,
     condition: String,

@@ -1,25 +1,38 @@
-/*
-YOUR CONTROLLER - MAIN.JS
+const dataTest = [{
+    city: "Mexico City",
+    condition: "Moderate or heavy rain shower",
+    conditionPic: "https://assets.weatherstack.com/images/wsymbols01_png_64/wsymbol_0026_heavy_rain_showers_night.png",
+    country: "Mexico",
+    temperature: 22,
+    updatedAt: "2019-09-16 22:42"
+},
+{
+    city: "Moscow",
+    condition: "Partly cloudy",
+    conditionPic: "https://assets.weatherstack.com/images/wsymbols01_png_64/wsymbol_0002_sunny_intervals.png",
+    country: "Russia",
+    temperature: 9,
+    updatedAt: "2019-09-17 07:03",
+}]
 
 
-Your controller should have the following:
 
-A loadPage function, which should render any saved data
-It should call getDataFromDB from an instance of your TempManager
-It should then render the city data from your TempManager
-This function should run when the page loads
-A handleSearch function, which should call to the server and render new weather data
-It should take the city-input from your html
-It should call the getCityData method from an instance of your TempManager, and send the city-input as the parameter
-It should then render the data you get back from the server
-This function needs to be async to work
-An on click for your search button, which calls your handleSearch function as it's callback function
-An on click for each of the save buttons that:
-Takes the name of the city from the DOM
-Calls the saveCity method from an instance of the TempManager, sending the cityName as a parameter
-An on click for each of the remove buttons that:
-Takes the name of the city from the DOM
-Calls the removeCity method from an instance of the TempManager, sending the cityName as a parameter
-*/
+const input = document.getElementById("input")
+input.addEventListener("keyup", function (event) {
+    if (event.keyCode === 13) {
+        event.preventDefault()
+        document.getElementById("button").click()
+    }
+})
 
-$.get('/city/:cityName')
+const loadPage = async function () {
+    tempManager.getDataFromDB()
+    let input = $("#input").val()
+    let dataDB = await $.get(`city/${input}`)
+    renderer.renderData('#city-template', '.container', dataTest)
+    console.log("loadPage: ", dataDB)
+}
+
+const handleSearch = function () {
+
+}
