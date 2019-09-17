@@ -9,37 +9,29 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<body>
-    <div><input type="text" id="input" placeholder="City">
-        <button id="button" onclick=loadPage()>Search</button></div>
+<body onload=loadPage()>
+    <div><input type="text" id="city-input" placeholder="City">
+        <button id="button" onclick=handleSearch()>Search</button></div>
 
     <div class="container"></div>
     <!-- HANDLEBARS -->
     <script id="city-template" type="text/x-handlebars-template">
-        <!-- <div id="city">
-            <div>{{dataHB.city}}, {{dataHB.country}}</div>
-            <div>{{dataHB.temperature}} ºC</div>
-            <div>{{dataHB.condition}}</div>
-            <div><img src = {{dataHB.conditionPic}}></div>
-            <div>{{dataHB.updatedAt}}</div>
-        </div> -->
-
-        {{#each allCityData}}
-            <div id="city">
-                <div>{{city}}, {{country}}</div>
-                <div>{{temperature}} ºC</div>
-                <div>{{condition}}</div>
-                <div><img src={{conditionPic}}></div>
-                <div>{{updatedAt}}</div>
-            </div>
-        {{/each}}
+    {{#each allCityData}}
+    <div id="city">
+        <div>{{city}}, {{country}}</div>
+        <div>{{temperature}} ºC</div>
+        <div>{{condition}}</div>
+        <div><img src={{conditionPic}}></div>
+        <div>{{updatedAt}}</div>
+    </div>
+    {{/each}}
 
     </script>
 
     <script src="/jquery/dist/jquery.js"></script>
     <script src="/handlebars/dist/handlebars.js"></script>
-    <script src="TempManager.js"></script>
     <script src="Render.js"></script>
+    <script src="TempManager.js"></script>
     <script src="main.js"></script>
 </body>
 

@@ -4,12 +4,11 @@ class Renderer {
         const source = $(tmp).html()
         const template = Handlebars.compile(source)
         let newHTML = template({ allCityData })
-        $(elm).empty().append(newHTML)
+        $(elm).append(newHTML)
         console.log("renderData(allCityData):", allCityData)
     }
 }
 
-const renderer = new Renderer()
 
 // class Renderer {
 //     constructor(tmp, elm, data) {

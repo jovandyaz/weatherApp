@@ -1,7 +1,6 @@
 
 const express = require('express')
 const router = express.Router()
-const request = require('request')
 const axios = require('axios')
 const City = require('../models/City')
 
@@ -23,6 +22,7 @@ router.get('/city/:cityName', function (req, res) {
                 condition: wData.current.weather_descriptions[0],
                 conditionPic: wData.current.weather_icons[0]
             }
+            console.log(cityData)
             res.send(cityData)
         }).catch(error => {
             console.log(error)
@@ -30,25 +30,23 @@ router.get('/city/:cityName', function (req, res) {
 })
 
 router.get('/cities', function (req, res) {
-    City.find({}, function (err, resp) {
-        console.log("citiesCollection:\n", resp)
-        res.send(resp)
+    City.find({}, function (err, citiesC) {
+        console.log("citiesCollection:\n", citiesC)
+        res.send(citiesC)
     })
 })
 
 router.post('/city', function (req, res) {
     console.log("req.body:", req.body)
-    const wCity = new City(req.body)
-    wCity.save()
+    const newCity = new City(req.body)
+    newCity.save()
     res.send("POST COMPLETE")
 })
 
 router.delete('/city/:cityName', function (req, res) {
     cityN = req.params.cityName
     console.log("cityN:", req.params.cityName)
-    City.deleteOne({
-        city: cityN
-    }, function (err, res) {
+    City.deleteOne({ city: cityN }, function (err, res) {
         console.log(res)
     })
     res.send("DELETE COMPLETE")
