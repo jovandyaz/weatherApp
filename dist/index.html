@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Weather (:</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
@@ -18,11 +19,16 @@
     <script id="city-template" type="text/x-handlebars-template">
     {{#each allCityData}}
     <div id="city">
-        <div>{{city}}, {{country}}</div>
+        <div id="cityName">{{city}}</div>
+        <div>{{country}}</div>
         <div>{{temperature}} ºC</div>
         <div>{{condition}}</div>
         <div><img src={{conditionPic}}></div>
         <div>{{updatedAt}}</div>
+        <i id="save" class="fas fa-cloud-download-alt"></i>
+        <i id="remove" class="far fa-trash-alt"></i>
+        <!-- <div {{#if visited}} class="city saved" {{else}} class="city not-saved" {{/if}} ></div> -->
+
     </div>
     {{/each}}
 

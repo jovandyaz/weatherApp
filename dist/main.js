@@ -22,3 +22,16 @@ const handleSearch = async function () {
     console.log("newCity", newCity)
     renderer.renderData('#city-template', '.container', [newCity])
 }
+
+$(".container").on("click", "#save", function(){
+    let text = $(this).siblings("#cityName").text()
+    tempManager.saveCity(text)
+    console.log("save(clic):", text)
+})
+
+$(".container").on("click", "#remove", async function(){
+    let text = $(this).siblings("#cityName").text()
+    await tempManager.removeCity(text)
+    $(".container").empty()
+    console.log("remove(clic):", text)
+})

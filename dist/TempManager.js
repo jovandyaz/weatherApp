@@ -16,15 +16,28 @@ class TempManager {
         return newCity
     }
 
-    saveCity() {
-        /* sends a city's data as POST request to the /city post route on your server
-        The method should take a parameter of cityName
-        It should find that city's data object from the class' cityData array
-        Then it should pass it as the body of the post request */
+    saveCity(cityName) {
+        console.log("saveCity(cityName)", cityName)
+        this.cityData.forEach(c => {
+            if (c.city == cityName) {
+                $.post('/city', c, function (response) {
+                    console.log("saveCity(c):", c)
+                    console.log("response", response)
+                })
+            }
+        })
     }
 
-    removeCity() {
-        /* which sends a DELETE request to the /city delete route on your server
-        The method should take a parameter of cityName */
+    removeCity(cityName) {
+        console.log("removeCity(cityName)", cityName)
+        $.ajax({
+            url: `/city/${cityName}`,
+            method: "DELETE",
+            success: function (response) {
+                console.log("removeCity(cityName)", cityName)
+                console.log("response", response)
+                loadPage()
+            }
+        })
     }
 }
