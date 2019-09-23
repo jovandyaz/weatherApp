@@ -20,7 +20,8 @@ router.get('/city/:cityName', function (req, res) {
                 updatedAt: wData.location.localtime,
                 temperature: wData.current.temperature,
                 condition: wData.current.weather_descriptions[0],
-                conditionPic: wData.current.weather_icons[0]
+                conditionPic: wData.current.weather_icons[0],
+                added: false
             }
             console.log(cityData)
             res.send(cityData)
@@ -37,8 +38,9 @@ router.get('/cities', function (req, res) {
 })
 
 router.post('/city', function (req, res) {
-    console.log("req.body:", req.body)
-    const newCity = new City(req.body)
+    console.log("NewCiti(req.body):", req.body)
+    const c = req.body
+    const newCity = new City({city: c.city, country: c.country, updatedAt: c.updatedAt, temperature: c.temperature, condition: c.condition, conditionPic: c.conditionPic, added: true})
     newCity.save()
     res.send("POST COMPLETE")
 })

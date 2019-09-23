@@ -7,7 +7,7 @@ const api = require('../server/routes/api')
 
 // Mongoose setup
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/weatherDB', { useNewUrlParser: true })
+mongoose.connect(process.env.MONGODB_URI||'mongodb://localhost/weatherDB', { useNewUrlParser: true })
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -18,6 +18,6 @@ app.use(express.static(path.join(__dirname, '..', 'node_modules')))
 app.use('/', api)
 
 
-const port = 3007
+const PORT = 8080
 // Server listening
-app.listen(port, () => console.log(`Running server on http://localhost:${port}`))
+app.listen(process.env.PORT || PORT, () => console.log(`Running server on http://localhost:${PORT}`))

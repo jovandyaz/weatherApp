@@ -5,30 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Weather (:</title>
+    <title>Weatherlight App</title>
+    <link href="https://fonts.googleapis.com/css?family=Gayathri|Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body onload=loadPage()>
-    <div><input type="text" id="city-input" placeholder="City">
-        <button id="button" onclick=handleSearch()>Search</button></div>
+    <div class="user-input">
+        <input type="text" id="city-input" placeholder="City">
+        <button id="button" onclick=handleSearch()>Search</button>
+    </div>
 
     <div class="container"></div>
-    <!-- HANDLEBARS -->
     <script id="city-template" type="text/x-handlebars-template">
     {{#each allCityData}}
     <div id="city">
         <div id="cityName">{{city}}</div>
         <div>{{country}}</div>
-        <div>{{temperature}} ºC</div>
-        <div>{{condition}}</div>
-        <div><img src={{conditionPic}}></div>
         <div>{{updatedAt}}</div>
-        <i id="save" class="fas fa-cloud-download-alt"></i>
+        <div>{{condition}}</div>
+        <div> {{temperature}} ºC</div>
+        <img id="img" src={{conditionPic}}>
+        {{#if added}}
         <i id="remove" class="far fa-trash-alt"></i>
-        <!-- <div {{#if visited}} class="city saved" {{else}} class="city not-saved" {{/if}} ></div> -->
-
+        {{else}}
+        <i id="save" class="fas fa-cloud-download-alt"></i>
+        {{/if}}
     </div>
     {{/each}}
 

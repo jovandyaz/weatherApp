@@ -1,42 +1,76 @@
+:root {
+    --primary-color: white;
+    --main-font: "Gayathri";
+    --general-padding: 1vmin;
+}
+
 body{
-    background-image: url("https://bit.ly/2kKplCv");
+    background-color: rgba(0, 255, 221, 0.705);
 }
 
 .container{
     display: grid;
+    width: 98vw;
+    font-family: 'Montserrat', sans-serif;
     grid-gap: 10px;
     grid-template-columns: repeat(1, 1fr);
 }
 
+.user-input {
+    font-family: var(--main-font);
+}
+
 #city-input{
+    display: inline-block;
     margin-bottom: 10px;
-    padding-right: 40vh;
-    height: 30px;
-    border-style: groove;
-    box-shadow: 5px 5px 2px grey;
+    padding: var(--general-padding);
+    font-family: 'Gayathri', sans-serif;
     font-size: 20px;
+    border-radius: 5%;
 }
 
 #button{
-    margin-bottom: 10px;
+    display: inline-block;
+    cursor: pointer;
     padding-right: 10vh;
-    height: 35px;
-    border-style: groove;
-    box-shadow: 5px 5px 2px grey;
-    text-align: center;
-    align-content: center;    
-    background-color: rgb(201, 41, 41);
+    height: 42px;
+    background-color: lightsalmon;
+    font-family: 'Gayathri', sans-serif;
     font-size: 20px;
-    color: whitesmoke;
+    color: var(--primary-color);
+    border-radius: 5%;
+    transition: background-color 0.3s, border-radius 0.3s;
+}
+
+#button:hover{
+    background-color: greenyellow;
 }
 
 #city{
     display: grid;
-    font-size: 25px;
-    color: black;
-    border-style: groove;
-    box-shadow: 5px 5px 2px grey;
+    font-size: 20px;
+    color: white;
+    background-image: linear-gradient(to right,  rgb(8, 186, 209), rgba(0, 255, 221, 0.863));
     text-align: center;
-    align-content: center;
     border-radius: 5px;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+#img{
+    opacity: 0.75;
+    border-radius: 10%;
+}
+
+#img:hover{
+    opacity: 1.0;
+}
+
+#save:hover{
+    background-color: greenyellow;
+    border-radius: 10%;
+}
+
+#remove:hover{
+    background-color: #d35400;
+    border-radius: 10%;
 }
