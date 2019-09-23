@@ -4,6 +4,10 @@ const router = express.Router()
 const axios = require('axios')
 const City = require('../models/City')
 
+router.get('/', function(req, res){
+    res.redirect('/todo');
+ });
+
 router.get('/city/:cityName', function (req, res) {
     const urlApi = 'http://api.weatherstack.com/current'
     const params = {
