@@ -20,4 +20,4 @@ app.use('/', api)
 
 const PORT = 8080
 // Server listening
-app.listen(process.env.PORT || PORT, () => console.log(`Running server on http://localhost:${PORT}`))
+app.listen(process.env.PORT || PORT)
