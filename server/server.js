@@ -12,7 +12,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/weatherDB', { u
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 // Serving FILES
-// app.use(express.static(path.join(__dirname, '..', 'dist')))
 app.use(express.static(path.join(__dirname, '..', 'dist')))
 app.use(express.static(path.join(__dirname, '..', 'node_modules')))
 app.use('/', api)
@@ -20,4 +19,4 @@ app.use('/', api)
 
 const PORT = 8080
 // Server listening
-app.listen(process.env.PORT || PORT)
+app.listen(process.env.PORT || PORT, ()=>console.log(`Running server on port: ${PORT}`))
