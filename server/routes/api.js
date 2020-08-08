@@ -26,7 +26,7 @@ router.get('/city/:cityName', function (req, res) {
             console.log(cityData)
             res.send(cityData)
         }).catch(error => {
-            console.log(error)
+            console.log("ERROR: " + error)
         })
 })
 
