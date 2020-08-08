@@ -9,16 +9,17 @@
   "author": "jovan",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "font-awesome": "^4.7.0",
-    "handlebars": "^4.2.0",
-    "jquery": "^3.4.1",
-    "moment": "^2.24.0",
-    "mongoose": "^5.7.1",
-    "nodemon": "^1.19.2",
-    "request": "^2.88.0"
+    "handlebars": "^4.7.6",
+    "jquery": "^3.5.1",
+    "moment": "^2.27.0",
+    "mongoose": "^5.9.28",
+    "nodemon": "^2.0.4",
+    "npm-check-updates": "^7.0.3",
+    "request": "^2.88.2"
   },
   "devDependencies": {},
   "repository": {
